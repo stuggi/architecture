@@ -54,6 +54,11 @@ vas:
           - name: network-values
             src_file: ../../hci/control-plane/networking/nncp/values.yaml
         build_output: ../control-plane.yaml
+        post_stage_run:
+          # Off-subnet clients need replies to leave through the publicapi gateway.
+          - name: 03 Apply the policy routing for the public endpoints
+            type: playbook
+            source: public_endpoints_policy_routing.yml
 
       - name: edpm-pre-ceph-nodeset
         path: examples/va/hci/edpm-pre-ceph/nodeset
@@ -115,3 +120,8 @@ vas:
           - name: Deploy Loki
             type: playbook
             source: "../../hooks/playbooks/deploy-loki-for-ck.yaml"
+          # heat, manila, aodh and watcher are enabled by the post-ceph stage, so their
+          # public Services only exist now: refresh the rules (idempotent).
+          - name: Refresh the policy routing for the public endpoints
+            type: playbook
+            source: public_endpoints_policy_routing.yml

@@ -15,7 +15,9 @@ served by MetalLB `LoadBalancer` services instead of OpenShift Routes.
   the VLAN and, for the replies, the policy routing of the openstack-operator doc
   `docs/dev/lb-pub-endpt-reuse/public-endpoint-asymmetric-routing.md`. CI Framework's
   `scenarios/reproducers/va-hci-public-lb.yml` adds the router VM, and the hook
-  `public_endpoints_policy_routing.yml` applies the policy routing. Every service has its own
+  `public_endpoints_policy_routing.yml` applies the policy routing after the
+  `control-plane` stage and again after `edpm-post-ceph-deployment`, when the
+  Services of heat, manila, aodh and watcher exist. Every service has its own
   front port, so they do not collide on the shared VIP.
 - Clients reach them by FQDN, `<service>.public.openstack.lab:<port>`, set through
   `override.service.*endpointURL`: keystone `:13000`, nova `:13774`, neutron `:13696`,
