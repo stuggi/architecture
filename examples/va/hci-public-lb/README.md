@@ -4,8 +4,18 @@ The [hci](../hci/README.md) VA with the public endpoints of **all deployed API
 services** (barbican, cinder, glance, horizon, keystone, neutron, nova, its cell1 noVNC proxy, and placement)
 served by MetalLB `LoadBalancer` services instead of OpenShift Routes.
 
-- All services share the VIP `192.168.122.85` of the `ctlplane` MetalLB pool
-  (`allow-shared-ip`), so no networking change is needed. Every service has its own
+- All services share the VIP `172.21.0.85` of a dedicated `publicapi` MetalLB pool
+  (VLAN 24, `172.21.0.0/24`, `allow-shared-ip`). The `nncp-configuration` and
+  `network-configuration` stages add the VLAN interface to the OCP nodes and the pool
+  with its L2 advertisement, from the `publicapi` entries of `network-values` like the
+  other networks (parent interface, VLAN, MTU, node addresses and pool range). Only
+  the OCP nodes are on it, and EDPM nodes use the internal endpoints.
+  `networking/nncp/values.yaml` is a copy of the hci one with those entries, as
+  kustomize can only read the values from inside its root: keep it in sync with hci. An off-subnet client such as controller-0 needs a router on
+  the VLAN and, for the replies, the policy routing of the openstack-operator doc
+  `docs/dev/lb-pub-endpt-reuse/public-endpoint-asymmetric-routing.md`. CI Framework's
+  `scenarios/reproducers/va-hci-public-lb.yml` adds the router VM, and the hook
+  `public_endpoints_policy_routing.yml` applies the policy routing. Every service has its own
   front port, so they do not collide on the shared VIP.
 - Clients reach them by FQDN, `<service>.public.openstack.lab:<port>`, set through
   `override.service.*endpointURL`: keystone `:13000`, nova `:13774`, neutron `:13696`,

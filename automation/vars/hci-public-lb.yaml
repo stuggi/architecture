@@ -3,7 +3,7 @@ vas:
   hci-public-lb:
     stages:
       - name: nncp-configuration
-        path: examples/va/hci/control-plane/networking/nncp
+        path: examples/va/hci-public-lb/networking/nncp
         wait_conditions:
           - >-
             oc -n openstack wait nncp
@@ -16,7 +16,7 @@ vas:
         build_output: nncp.yaml
 
       - name: network-configuration
-        path: examples/va/hci/control-plane/networking
+        path: examples/va/hci-public-lb/networking
         wait_conditions:
           - >-
             oc -n metallb-system wait pod

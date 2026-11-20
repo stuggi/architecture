@@ -34,9 +34,9 @@ patches:
                 public:
                   metadata:
                     annotations:
-                      metallb.universe.tf/address-pool: ctlplane
+                      metallb.universe.tf/address-pool: publicapi
                       metallb.universe.tf/allow-shared-ip: public-endpoints
-                      metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                      metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                   spec:
                     type: LoadBalancer
                   endpointURL: https://placement.public.openstack.lab:13778
@@ -52,9 +52,9 @@ patches:
                   public:
                     metadata:
                       annotations:
-                        metallb.universe.tf/address-pool: ctlplane
+                        metallb.universe.tf/address-pool: publicapi
                         metallb.universe.tf/allow-shared-ip: public-endpoints
-                        metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                        metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                     spec:
                       type: LoadBalancer
                     endpointURL: https://barbican.public.openstack.lab:13311
@@ -70,9 +70,9 @@ patches:
                   public:
                     metadata:
                       annotations:
-                        metallb.universe.tf/address-pool: ctlplane
+                        metallb.universe.tf/address-pool: publicapi
                         metallb.universe.tf/allow-shared-ip: public-endpoints
-                        metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                        metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                     spec:
                       type: LoadBalancer
                     endpointURL: https://cinder.public.openstack.lab:13776
@@ -89,9 +89,9 @@ patches:
                     public:
                       metadata:
                         annotations:
-                          metallb.universe.tf/address-pool: ctlplane
+                          metallb.universe.tf/address-pool: publicapi
                           metallb.universe.tf/allow-shared-ip: public-endpoints
-                          metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                          metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                       spec:
                         type: LoadBalancer
                       endpointURL: https://glance.public.openstack.lab:13292
@@ -106,9 +106,9 @@ patches:
                 public:
                   metadata:
                     annotations:
-                      metallb.universe.tf/address-pool: ctlplane
+                      metallb.universe.tf/address-pool: publicapi
                       metallb.universe.tf/allow-shared-ip: public-endpoints
-                      metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                      metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                   spec:
                     type: LoadBalancer
                   endpointURL: https://keystone.public.openstack.lab:13000
@@ -123,9 +123,9 @@ patches:
                 public:
                   metadata:
                     annotations:
-                      metallb.universe.tf/address-pool: ctlplane
+                      metallb.universe.tf/address-pool: publicapi
                       metallb.universe.tf/allow-shared-ip: public-endpoints
-                      metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                      metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                   spec:
                     type: LoadBalancer
                   endpointURL: https://neutron.public.openstack.lab:13696
@@ -144,9 +144,9 @@ patches:
                     service:
                       metadata:
                         annotations:
-                          metallb.universe.tf/address-pool: ctlplane
+                          metallb.universe.tf/address-pool: publicapi
                           metallb.universe.tf/allow-shared-ip: public-endpoints
-                          metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                          metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                       spec:
                         type: LoadBalancer
                       endpointURL: https://novncproxy.public.openstack.lab:13080
@@ -160,9 +160,9 @@ patches:
                   public:
                     metadata:
                       annotations:
-                        metallb.universe.tf/address-pool: ctlplane
+                        metallb.universe.tf/address-pool: publicapi
                         metallb.universe.tf/allow-shared-ip: public-endpoints
-                        metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                        metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                     spec:
                       type: LoadBalancer
                     endpointURL: https://nova.public.openstack.lab:13774
@@ -174,9 +174,9 @@ patches:
               service:
                 metadata:
                   annotations:
-                    metallb.universe.tf/address-pool: ctlplane
+                    metallb.universe.tf/address-pool: publicapi
                     metallb.universe.tf/allow-shared-ip: public-endpoints
-                    metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                    metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                 spec:
                   type: LoadBalancer
                 endpointURL: https://horizon.public.openstack.lab
@@ -192,9 +192,9 @@ patches:
                   public:
                     metadata:
                       annotations:
-                        metallb.universe.tf/address-pool: ctlplane
+                        metallb.universe.tf/address-pool: publicapi
                         metallb.universe.tf/allow-shared-ip: public-endpoints
-                        metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                        metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                     spec:
                       type: LoadBalancer
                     endpointURL: https://heat.public.openstack.lab:13004
@@ -208,9 +208,9 @@ patches:
                   public:
                     metadata:
                       annotations:
-                        metallb.universe.tf/address-pool: ctlplane
+                        metallb.universe.tf/address-pool: publicapi
                         metallb.universe.tf/allow-shared-ip: public-endpoints
-                        metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                        metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                     spec:
                       type: LoadBalancer
                     endpointURL: https://heat-cfn.public.openstack.lab:13005
@@ -226,9 +226,9 @@ patches:
                   public:
                     metadata:
                       annotations:
-                        metallb.universe.tf/address-pool: ctlplane
+                        metallb.universe.tf/address-pool: publicapi
                         metallb.universe.tf/allow-shared-ip: public-endpoints
-                        metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                        metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                     spec:
                       type: LoadBalancer
                     endpointURL: https://manila.public.openstack.lab:13786
@@ -245,9 +245,9 @@ patches:
                     public:
                       metadata:
                         annotations:
-                          metallb.universe.tf/address-pool: ctlplane
+                          metallb.universe.tf/address-pool: publicapi
                           metallb.universe.tf/allow-shared-ip: public-endpoints
-                          metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                          metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                       spec:
                         type: LoadBalancer
                       endpointURL: https://aodh.public.openstack.lab:13042
@@ -263,9 +263,9 @@ patches:
                   public:
                     metadata:
                       annotations:
-                        metallb.universe.tf/address-pool: ctlplane
+                        metallb.universe.tf/address-pool: publicapi
                         metallb.universe.tf/allow-shared-ip: public-endpoints
-                        metallb.universe.tf/loadBalancerIPs: 192.168.122.85
+                        metallb.universe.tf/loadBalancerIPs: 172.21.0.85
                     spec:
                       type: LoadBalancer
                     endpointURL: https://watcher.public.openstack.lab:13322
